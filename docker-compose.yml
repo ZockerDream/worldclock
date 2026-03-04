@@ -1,0 +1,12 @@
+services:
+  webserver:
+    image: php:8.1-apache
+    container_name: worldclock-webserver
+    ports:
+      - "8000:80"
+    volumes:
+      - ./html:/var/www/html
+    environment:
+      - PHP_DISPLAY_ERRORS=1
+      - PHP_ERROR_REPORTING=E_ALL
+    restart: unless-stopped
